@@ -1,0 +1,85 @@
+:root {
+    --primary: #2563eb;
+    --success: #16a34a;
+    --danger: #dc2626;
+    --dark: #1e293b;
+    --light: #f8fafc;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--light);
+    color: var(--dark);
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: var(--primary);
+    color: white;
+    text-align: center;
+    padding: 1.5rem;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* Layout Grid auto-responsive pour les cartes candidats */
+.grid-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.card {
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+}
+
+.candidate-card {
+    text-align: center;
+    border: 1px solid #e2e8f0;
+}
+
+.candidate-card img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.form-card {
+    max-width: 500px;
+    margin: 0 auto 3rem auto;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label { margin-bottom: 0.5rem; font-weight: bold; }
+.form-group input, .form-group select { padding: 0.75rem; border-radius: 4px; border: 1px solid #cbd5e1; }
+
+.btn {
+    background-color: var(--primary);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 1rem;
+}
+
+.btn:hover { opacity: 0.9; }
+.message { margin-top: 1rem; padding: 0.75rem; border-radius: 4px; font-weight: bold; text-align: center; display: none; }
+.success { background-color: #dcfce7; color: var(--success); display: block; }
+.error { background-color: #fee2e2; color: var(--danger); display: block; }
