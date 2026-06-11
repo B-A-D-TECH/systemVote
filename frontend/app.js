@@ -1,4 +1,5 @@
-const API_URL = 'http://localhost:3000/api';
+// Use PHP backend served by XAMPP/Apache
+const API_URL = 'http://localhost/systemVote/backend/api.php';
 
 document.addEventListener('DOMContentLoaded', () => {
     loadCandidates();
@@ -11,13 +12,15 @@ document.addEventListener('DOMContentLoaded', () => {
 // Charger et afficher les cartes des candidats
 async function loadCandidates() {
     try {
-        const response = await fetch(`${API_URL}/candidates`);
+        const response = await fetch(`${API_URL}?action=candidates`);
         const candidates = await response.json();
         
         const container = document.getElementById('candidates-container');
         const selectElement = document.getElementById('select-candidate');
-        
+
         container.innerHTML = '';
+        // Réinitialise la select (garder l'option par défaut)
+        selectElement.innerHTML = '<option value="">-- Sélectionnez un candidat --</option>';
         
         candidates.forEach(candidate => {
             // Remplissage dynamique des cartes
@@ -49,7 +52,7 @@ async function handleVote(e) {
     const msgContainer = document.getElementById('message-container');
     
     try {
-        const response = await fetch(`${API_URL}/vote`, {
+        const response = await fetch(`${API_URL}?action=vote`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ studentId, candidateId })
@@ -75,7 +78,7 @@ async function handleVote(e) {
 // Charger et afficher les scores globaux
 async function loadResults() {
     try {
-        const response = await fetch(`${API_URL}/results`);
+        const response = await fetch(`${API_URL}?action=results`);
         const results = await response.json();
         
         const container = document.getElementById('results-container');
